@@ -3,7 +3,8 @@
 
 class Menu:
 
-    def __init__(self):
+    def __init__(self, window):
+        self.window = window
         self.player_name: str = None
 
     def display(self) -> void:

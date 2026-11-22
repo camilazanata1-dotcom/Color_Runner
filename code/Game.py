@@ -1,9 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+import pygame
+from typing import TYPE_CHECKING, Optional
+
+from code.Menu import Menu
 
 if TYPE_CHECKING:
     from Background import Background
@@ -14,25 +18,49 @@ if TYPE_CHECKING:
 class Game:
 
     def __init__(self):
-        self.current_level: Level = None
-        self.player: Player = None
-        self.background: Background = None
-        self.game_status: str = None
-        self.current_player_name: str = None
-        self.score: int = None
-        self.history: list = None
+        pygame.init()
+        self.window = pygame.display.set_mode((600, 480))
+        self.current_level: Optional[Level] = None
+        self.player: Optional[Player] = None
+        self.background: Optional[Background] = None
 
-    def start_game(self) -> void:
+        self.game_status: str = "menu"
+        self.current_player_name: str = ""
+        self.score: int = 0
+        self.history: list = []
+
+        self.window = None
+
+    def start_game(self) -> None:
         pass
 
-    def next_level(self) -> void:
+    def next_level(self) -> None:
         pass
 
     def check_game_over(self) -> bool:
+        return False
+
+    def restart_game(self) -> None:
         pass
 
-    def restart_game(self) -> void:
+    def record_result(self) -> None:
         pass
 
-    def record_result(self) -> void:
-        pass
+    def run(self) -> None:
+        pygame.display.set_caption("Color Runner")
+        clock = pygame.time.Clock()
+        running = True
+
+        while running:
+            menu = Menu(self.window)
+            menu.run()
+            pass
+
+
+        #    for event in pygame.event.get():
+        #        if event.type == pygame.QUIT:
+        #            running = False
+        #    pygame.display.flip()
+        #    clock.tick(60)
+
+        #pygame.quit()
