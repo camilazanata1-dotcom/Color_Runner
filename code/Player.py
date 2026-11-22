@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from pygame import Color
 
 from Entity import Entity
 
@@ -11,17 +12,17 @@ class Player(Entity):
         self.lives: int = None
         self.state: str = None
 
-    def jump(self) -> void:
+    def jump(self) -> None:
         pass
 
-    def crouch(self) -> void:
+    def crouch(self) -> None:
         pass
 
-    def change_color(self) -> void:
+    def change_color(self) -> None:
         pass
 
-    def lose_life(self) -> void:
+    def lose_life(self) -> None:
         pass
 
-    def reset_for_level(self) -> void:
+    def reset_for_level(self) -> None:
         pass

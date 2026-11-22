@@ -4,8 +4,9 @@
 
 from __future__ import annotations
 
-import pygame
 from typing import TYPE_CHECKING, Optional
+
+import pygame
 
 from code.Menu import Menu
 
@@ -19,7 +20,7 @@ class Game:
 
     def __init__(self):
         pygame.init()
-        self.window = pygame.display.set_mode((600, 480))
+        self.window = pygame.display.set_mode((800, 450))
         self.current_level: Optional[Level] = None
         self.player: Optional[Player] = None
         self.background: Optional[Background] = None
@@ -29,7 +30,7 @@ class Game:
         self.score: int = 0
         self.history: list = []
 
-        self.window = None
+
 
     def start_game(self) -> None:
         pass
@@ -48,19 +49,7 @@ class Game:
 
     def run(self) -> None:
         pygame.display.set_caption("Color Runner")
-        clock = pygame.time.Clock()
-        running = True
 
-        while running:
-            menu = Menu(self.window)
-            menu.run()
-            pass
+        menu = Menu(self.window)
+        menu.run()
 
-
-        #    for event in pygame.event.get():
-        #        if event.type == pygame.QUIT:
-        #            running = False
-        #    pygame.display.flip()
-        #    clock.tick(60)
-
-        #pygame.quit()
